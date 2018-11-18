@@ -25,7 +25,7 @@ jobs:
         #- docker run --rm $DOCKER_IMAGE:$DOCKER_TAG 'curl --version && jq --version'
       after_success:
         - |
-          docker login -u="clabu" -p="${DOCKER_PASSWORD}"
+          docker login -u="clabu" -p="$DOCKER_PASSWORD"
           docker tag $DOCKER_IMAGE:$DOCKER_TAG clabu/$DOCKER_IMAGE:$DOCKER_TAG
           docker push clabu/$DOCKER_IMAGE:$DOCKER_TAG
       env:
